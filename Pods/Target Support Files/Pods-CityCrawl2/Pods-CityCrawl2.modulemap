@@ -1,0 +1,6 @@
+framework module Pods_CityCrawl2 {
+  umbrella header "Pods-CityCrawl2-umbrella.h"
+
+  export *
+  module * { export * }
+}

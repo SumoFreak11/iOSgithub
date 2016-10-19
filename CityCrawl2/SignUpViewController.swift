@@ -20,47 +20,57 @@ class SignUpViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        // GIDSignIn.sharedInstance().uiDelegate = self
-        // GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-        // GIDSignIn.sharedInstance().signInSilently()
-        // GIDSignIn.sharedInstance().delegate = self
-        
-        loginButton.hidden = true
 
-        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-            if let user = user {
-                // user is signed in
-                // if whereever I save the username is != nil then take to next page else take to make username page
-                self.switchToNaVViewController()
-            }else {
-                self.loginButton.readPermissions = ["email", "public_profile"]
-                //self.loginButton.center = self.view.center
-                self.loginButton.delegate = self
-                //self.view.addSubview(self.loginButton)
-                
-                self.loginButton.hidden = false
-            }}
+        view.addSubview(loginButton)
+        loginButton.center = CGPointMake(375.0/2, 480.0)
+        
+        self.loginButton.readPermissions = ["email", "public_profile"]
+        self.loginButton.delegate = self
+        
+        if let token = FBSDKAccessToken.currentAccessToken() {
+            self.fetchProfile()
+            self.switchToFirstTVC()
+        }
+    }
+    
+    func fetchProfile() {
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).startWithCompletionHandler { (connection,
+            result, error) -> Void in
+            
+            if error != nil {
+                print(error)
+                return
             }
+            if let email = result["email"] as? String {
+                print(email)
+            }
+            if let name = result["first_name"] as? String {
+                print(name)
+            }
+            if let picture = result["picture"] as? NSDictionary, data = picture["data"] as? NSDictionary,
+            url = data["url"] as? String {
+                print(url)
+            }
+    }
+}
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result:
         FBSDKLoginManagerLoginResult!, error: NSError!) {
-            
-            print("user logged in")
             
             if(error != nil) {
                 print(error!.localizedDescription)
                 return
             }else if(result.isCancelled) {
-                // handle the cancel event
+                // handle the cancel event (person hit cancel in facebook page)
             }else {
-
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
-            
              FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-                
-            print("logged into firebase")
                 }
+            }
+            if let token = FBSDKAccessToken.currentAccessToken() {
+            self.fetchProfile()
+            self.switchToFirstTVC()
             }
     }
     
@@ -68,37 +78,11 @@ class SignUpViewController: UIViewController, FBSDKLoginButtonDelegate {
         print ("user logged out")
     }
     
-    
-    
-    
-//    
-//    {
-//    "rules": {
-//    ".read": "auth != true",
-//    ".write": "auth != true"
-//    }
-//    }
-    
-    
-    
-    
-    
-    
     // Login using Facebook button
     @IBAction func facebookLoginDidTapped(sender: AnyObject) {
         
-        
     }
-   
-//    Login using Google button
-//    @IBAction func googleLoginDidTapped(sender: AnyObject) {
-//        print("google login did tapped")
-//        Helper.helper.logInWithGoogle()
-//        
-//        GIDSignIn.sharedInstance().signIn()
-//        }
     
-        
     private func switchToNaVViewController() {
         // Create a main storyboard instance
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -109,5 +93,16 @@ class SignUpViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Set navigation controller as root controller
         appDelegate.window?.rootViewController = naviVC
 }
+
+    private func switchToFirstTVC() {
+        // Create a main storyboard instance
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // From main storyboard -> navigation controller
+        let naviVC = storyboard.instantiateViewControllerWithIdentifier("HomeNavi") as! UINavigationController
+        // Get the app delegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        // Set navigation controller as root controller
+        appDelegate.window?.rootViewController = naviVC
+    }
 
 }

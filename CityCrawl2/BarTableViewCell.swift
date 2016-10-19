@@ -8,11 +8,13 @@
 
 import Foundation
 import UIKit
+import Cosmos
 
 
 class BarTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var barNameLabel: UILabel!
+    @IBOutlet weak var starView: CosmosView!
     
 }

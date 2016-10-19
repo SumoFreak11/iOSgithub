@@ -12,11 +12,11 @@
 		DC494D6E35A67B00DEFE212B /* Pods_CityCrawl2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222821315D42587B27D06A4D /* Pods_CityCrawl2.framework */; };
 		EB1DE4DB1D6C2686007A498A /* EventHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1DE4DA1D6C2686007A498A /* EventHomePage.swift */; };
 		EB2BC6F71D67A2ED00509B72 /* LoginLandingControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BC6F61D67A2ED00509B72 /* LoginLandingControllerViewController.swift */; };
-		EB2BC6F91D67AF3800509B72 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BC6F81D67AF3800509B72 /* HomeViewController.swift */; };
 		EB2BC6FB1D67C6C200509B72 /* CrawlTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BC6FA1D67C6C200509B72 /* CrawlTableViewController.swift */; };
 		EB2BC6FD1D67C89600509B72 /* CrawlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BC6FC1D67C89600509B72 /* CrawlTableViewCell.swift */; };
 		EB4E2F091D63B61D0072D886 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E2F081D63B61D0072D886 /* Events.swift */; };
 		EB5A4D631D76A18D00EA06FA /* BarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A4D621D76A18D00EA06FA /* BarTableViewCell.swift */; };
+		EB5A4D651D7ECDDF00EA06FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A4D641D7ECDDF00EA06FA /* DetailViewController.swift */; };
 		EBE6850C1D46E3D80049CA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6850B1D46E3D80049CA25 /* AppDelegate.swift */; };
 		EBE685111D46E3D80049CA25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBE6850F1D46E3D80049CA25 /* Main.storyboard */; };
 		EBE685131D46E3D80049CA25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE685121D46E3D80049CA25 /* Assets.xcassets */; };
@@ -57,12 +57,12 @@
 		D1DF9ACC760D091DA6799BC2 /* Pods-CityCrawl2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityCrawl2.release.xcconfig"; path = "Pods/Target Support Files/Pods-CityCrawl2/Pods-CityCrawl2.release.xcconfig"; sourceTree = "<group>"; };
 		EB1DE4DA1D6C2686007A498A /* EventHomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHomePage.swift; sourceTree = "<group>"; };
 		EB2BC6F61D67A2ED00509B72 /* LoginLandingControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginLandingControllerViewController.swift; sourceTree = "<group>"; };
-		EB2BC6F81D67AF3800509B72 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EB2BC6FA1D67C6C200509B72 /* CrawlTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrawlTableViewController.swift; sourceTree = "<group>"; };
 		EB2BC6FC1D67C89600509B72 /* CrawlTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrawlTableViewCell.swift; sourceTree = "<group>"; };
 		EB4E2F011D4C33C80072D886 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		EB4E2F081D63B61D0072D886 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		EB5A4D621D76A18D00EA06FA /* BarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarTableViewCell.swift; sourceTree = "<group>"; };
+		EB5A4D641D7ECDDF00EA06FA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EBE685081D46E3D80049CA25 /* CityCrawl2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityCrawl2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE6850B1D46E3D80049CA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBE685101D46E3D80049CA25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,9 +176,9 @@
 				EBE685171D46E3D80049CA25 /* Info.plist */,
 				EBE685391D46E42C0049CA25 /* SignUpViewController.swift */,
 				EB2BC6F61D67A2ED00509B72 /* LoginLandingControllerViewController.swift */,
-				EB2BC6F81D67AF3800509B72 /* HomeViewController.swift */,
 				EB2BC6FA1D67C6C200509B72 /* CrawlTableViewController.swift */,
 				EB1DE4DA1D6C2686007A498A /* EventHomePage.swift */,
+				EB5A4D641D7ECDDF00EA06FA /* DetailViewController.swift */,
 				EBE6853B1D46E4390049CA25 /* ChatViewController.swift */,
 				EB4E2F011D4C33C80072D886 /* Bridge-Header.h */,
 				EB2BC6FC1D67C89600509B72 /* CrawlTableViewCell.swift */,
@@ -468,11 +468,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5A4D651D7ECDDF00EA06FA /* DetailViewController.swift in Sources */,
 				EB1DE4DB1D6C2686007A498A /* EventHomePage.swift in Sources */,
 				EB4E2F091D63B61D0072D886 /* Events.swift in Sources */,
 				EBE6853A1D46E42C0049CA25 /* SignUpViewController.swift in Sources */,
 				EB2BC6F71D67A2ED00509B72 /* LoginLandingControllerViewController.swift in Sources */,
-				EB2BC6F91D67AF3800509B72 /* HomeViewController.swift in Sources */,
 				EB5A4D631D76A18D00EA06FA /* BarTableViewCell.swift in Sources */,
 				EBE6853C1D46E4390049CA25 /* ChatViewController.swift in Sources */,
 				EBE6850C1D46E3D80049CA25 /* AppDelegate.swift in Sources */,

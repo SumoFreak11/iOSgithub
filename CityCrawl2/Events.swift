@@ -17,13 +17,21 @@ struct Event {
     let date:String!
     let eventRef:FIRDatabaseReference?
     let desc:String!
+    let map:String!
+    let secret:String!
+    let ticket:String!
+    let photo:String!
     
-    init (title:String, date:String, desc:String, key:String = "") {
+    init (title:String, map:String, photo:String, ticket:String, date:String, desc:String, key:String = "", secret:String) {
         self.key = key
         self.title = title
         self.date = date
         self.eventRef = FIRDatabase.database().reference().child("events") // or nil
         self.desc = desc
+        self.map = map
+        self.secret = secret
+        self.ticket = ticket
+        self.photo = photo
     }
     
     init (snapshot:FIRDataSnapshot) {
@@ -36,6 +44,12 @@ struct Event {
             title = ""
         }
         
+        if let eventMap = snapshot.value!["map"] as? String {
+            map = eventMap
+        }else{
+            map = ""
+        }
+
         if let eventDate = snapshot.value!["date"] as? String {
             date = eventDate
         }else{
@@ -47,9 +61,27 @@ struct Event {
         }else{
             desc = ""
         }
+        
+        if let eventSecret = snapshot.value!["secret"] as? String {
+            secret = eventSecret
+        }else{
+            secret = ""
+        }
+        
+        if let eventTicket = snapshot.value!["ticket"] as? String {
+            ticket = eventTicket
+        }else{
+            ticket = ""
+        }
+        
+        if let eventPhoto = snapshot.value!["photo"] as? String {
+            photo = eventPhoto
+        }else{
+            photo = ""
+        }
     
         func toAnyObject() -> AnyObject {
-            return ["title":title, "date":date]
+            return ["title":title, "date":date, "desc":desc]
         }
         
     }

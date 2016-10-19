@@ -12,9 +12,17 @@ import UIKit
 
 class CrawlTableViewCell: UITableViewCell {
     
-
-    @IBOutlet weak var nameOfCrawl: UILabel!
+    @IBAction func ticketURL(sender: AnyObject) {
     
+    }
+
+    
+    @IBOutlet weak var eventImage: UIImageView!
+    
+    @IBOutlet weak var nameOfCrawl: UILabel!
     @IBOutlet weak var dateOfCrawl: UILabel!
- 
+    @IBOutlet weak var descOfCrawl: UILabel!
+    
+    @IBOutlet weak var backgroundViewCell: UIView!
+
 }
